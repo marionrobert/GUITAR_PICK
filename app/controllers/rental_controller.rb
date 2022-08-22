@@ -1,15 +1,15 @@
 class RentalController < ApplicationController
+  before_action :guitar_find, only: %i[new create]
+  before_action :rental_find, only: %i[accept decline]
+
   def new
     @rental = Rental.new
-    @guitar = Guitar.find(params[:guitar_id])
   end
 
   def create
     @rental = Rental.new(rental_params)
-    @guitar = Guitar.find(params[:guitar_id])
-    @user = User.find(params[:rental][:user_id])
     @rental.guitar = @guitar
-    @rental.user = @user
+    @rental.user = current_user
     if @rental.save
       redirect_to dashboard_path
     else
@@ -18,20 +18,26 @@ class RentalController < ApplicationController
   end
 
   def accept
-    @rental = Rental.find(params[:id])
     @rental.status = "validated"
     @rental.save
     redirect_to dashboard_path
   end
 
   def decline
-    @rental = Rental.find(params[:id])
     @rental.status = "declined"
     @rental.save
     redirect_to dashboard_path
   end
 
   private
+
+  def rental_find
+    @rental = Rental.find(params[:id])
+  end
+
+  def guitar_find
+    @guitar = Guitar.find(params[:guitar_id])
+  end
 
   def rental_params
     params.require(:rental).permit(:starting_date, :ending_date)
