@@ -6,7 +6,7 @@ class CreateGuitars < ActiveRecord::Migration[7.0]
       t.string :category
       t.string :location
       t.float :daily_price
-      t.references :user_id, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
