@@ -1,4 +1,4 @@
-class RentalController < ApplicationController
+class RentalsController < ApplicationController
   before_action :guitar_find, only: %i[new create]
   before_action :rental_find, only: %i[accept decline]
 
