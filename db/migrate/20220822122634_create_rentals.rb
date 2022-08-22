@@ -3,8 +3,8 @@ class CreateRentals < ActiveRecord::Migration[7.0]
     create_table :rentals do |t|
       t.date :starting_date
       t.date :end_date
-      t.references :instrument_id, null: false, foreign_key: true
-      t.references :user_id, null: false, foreign_key: true
+      t.references :guitar, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.string :status
 
       t.timestamps
