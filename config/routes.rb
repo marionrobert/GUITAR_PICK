@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'rental/new'
-  get 'rental/create'
-  get 'rental/accept'
-  get 'rental/decline'
   devise_for :users
   root to: "pages#home"
+  resources :rentals, only: %i[new create] do
+    get "accept", to: "rentals#accept"
+    get "decline", to: "rentals#decline"
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
