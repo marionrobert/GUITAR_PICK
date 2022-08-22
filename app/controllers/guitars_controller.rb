@@ -1,4 +1,4 @@
-class GuitarController < ApplicationController
+class GuitarsController < ApplicationController
   before_action :set_guitar, only: [:show, :destroy, :edit, :update]
 
   def index
