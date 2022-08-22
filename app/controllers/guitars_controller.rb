@@ -1,4 +1,4 @@
-class GuitarController < ApplicationController
+class GuitarsController < ApplicationController
   before_action :set_guitar, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -15,6 +15,7 @@ class GuitarController < ApplicationController
   def create
     @guitar = Guitar.new(guitar_params)
     @guitar.user_id = current_user.id
+
     if @guitar.save
       redirect_to guitar_path(@guitar)
     else
