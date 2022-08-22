@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'guitar/resources'
   devise_for :users
   root to: "pages#home"
+
   resources :rentals, only: %i[new create] do
     get "accept", to: "rentals#accept"
     get "decline", to: "rentals#decline"

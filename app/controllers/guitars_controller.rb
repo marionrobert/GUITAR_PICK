@@ -15,6 +15,7 @@ class GuitarsController < ApplicationController
   def create
     @guitar = Guitar.new(guitar_params)
     @guitar.user_id = current_user.id
+
     if @guitar.save
       redirect_to guitar_path(@guitar)
     else
