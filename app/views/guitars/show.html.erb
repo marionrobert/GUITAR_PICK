@@ -7,3 +7,5 @@
   <li><%= @guitar.description%></li>
   <li><%= @guitar.daily_price%></li>
 </ul>
+
+<%= button_to "Delete Guitar", @guitar, method: :delete, class: "btn btn-danger  text-color-white mt-3" %>

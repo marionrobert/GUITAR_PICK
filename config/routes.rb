@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
+  get "dashboard", to: "pages#dashboard"
+
   resources :rentals, only: %i[new create] do
     get "accept", to: "rentals#accept"
     get "decline", to: "rentals#decline"
   end
+
 
   resources :guitars
 
