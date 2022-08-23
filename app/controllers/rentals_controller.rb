@@ -7,6 +7,7 @@ class RentalsController < ApplicationController
   end
 
   def create
+    
     @rental = Rental.new(rental_params)
     @rental.guitar = @guitar
     @rental.user = current_user

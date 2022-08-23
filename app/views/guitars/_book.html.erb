@@ -1,0 +1,18 @@
+<div class="container m-4 p-4 border rounded position-sticky">
+<h3>Book this guitar</h3>
+
+<h5><%= @guitar.daily_price%>$ per day</h5>
+<%= simple_form_for [@guitar, @rental] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :starting_date, placeholder: 'Start Date' %>
+    <%= f.input :end_date, placeholder: 'End Date' %>
+   </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary", value: 'Book!' %>
+  </div>
+<% end %>
+</div>
