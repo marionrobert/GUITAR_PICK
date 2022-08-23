@@ -1,6 +1,7 @@
 <h1>Hello from the show of the <%= @guitar.name %></h1>
 <% render partial: "guitarcard"%>
 
+
 <ul>
 <%= cl_image_tag @guitar.photo.key, height: 300, width: 400, crop: :fill %>
 

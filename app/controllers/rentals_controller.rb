@@ -19,12 +19,14 @@ class RentalsController < ApplicationController
   end
 
   def accept
+    raise
     @rental.status = "accepted"
     @rental.save
     redirect_to dashboard_path
   end
 
   def decline
+    raise
     @rental.status = "declined"
     @rental.save
     redirect_to dashboard_path

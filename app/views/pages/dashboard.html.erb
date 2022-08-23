@@ -1,67 +1,124 @@
-<h1>Hello</h1>
+
 <h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
 
+<h2>Here are you guitars</h2>
+<hr>
+<% if @user.guitars.count > 0 %>
+  <p>You have guitars! congratulations!</p>
+  <% @user.guitars.each do|guitar|  %>
+  <ul>
+    <li><h4>BRAND</h4>
+    <%= guitar.brand %>
+    </li>
+    <li><h4>LOCATION</h4>
+    <%= guitar.location %>
+    </li>
+    <li><h4>CATEGORY</h4>
+    <%= guitar.category %>
+    </li>
+    <li><h4>DESCRIPTION</h4>
+    <%= guitar.description%>
+    </li>
+    <li><h4>DAILY PRICE</h4>
+    <%= guitar.daily_price%>
+    </li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>Sorry, you don't have any guitars! FOR NOW!</p>
+<% end  %>
 
-<% if current_user.rentals > 0 %>
+
+
+<% if current_user.rentals.count > 0 %>
   <%# si j'ai des rentals, alors je vais afficher les rnetals par catégorie %>
-  <p>j'ai des rentals</p>
+  <p>TEST :You have rentals</p>
 <% else %>
   <%# sinon, j'affiche "vous n'avez pas ecore de rentals" %>
-  <h1>Rentals</h1>
-  <hr>
-  <p>je n'ai pas de rentals</p>
+  <p>TEST :je n'ai pas de rentals</p>
+<% end %>
+
+
+<H2 class="text-center">ACCEPTED RENTALS</H2>
+<hr>
+<% if current_user.rentals.where(status: "accepted").count > 0 %>
+    <% current_user.rentals.where(status: "accepted").each do |rental|%>
+      <div class="card-product mb-5">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <p><%= rental.starting_date %></p>
+          <p><%= rental.end_date %></p>
+          <p>XXX $</p>
+        </div>
+      </div>
+    <% end %>
+<% else %>
+  <p>You don't have accepted rentals</p>
 <% end %>
 
 
 
-<% current_user.rentals.where(status: "accepted") do |rental|%>
-  <H2 class="text-center">ACCEPTED RENTALS</H2>
-  <hr>
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-      <h2><%= rental.name %></h2>
-      <h3><%= rental.starting_date %></h3>
-      <h3><%= rental.end_date %></h3>
-      <h3>XXX $</h3>
+<H2 class="text-center">PENDING RENTALS</H2>
+<hr>
+<% if current_user.rentals.where(status: "pending").count > 0 %>
+
+    <% @user.rentals.where(status: "pending").each do |rental|%>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <p><%= rental.starting_date %></p>
+          <p><%= rental.end_date %></p>
+          <p>XXX $</p>
+          </div>
+        </div>
+    <%# #TODO: buttons decline / accept  %>
+    <%# if @user.guitars.count > 0 %>
+        <%#= link_to "Accept", guitar_rental_accept_path(rental), :class => "btn btn-success"%>
+        <%#= link_to "Create a movie list", new_list_path, :class => "btn btn-ghost" %>
+        <%#= link_to "Decline", guitar_rental_decline_path(rental), class:"btn btn-danger"%>
+        <%#= button_to "Accept", rental, method: :accept, class: "btn btn-success  text-color-white mt-3" %>
+    <%# end %>
+    <% end %>
+
+
+
+<% else %>
+  <p>You don't have pending rentals</p>
+<% end %>
+<%# TODO >>>> si je suis un owner, les boutons decline et accept s'affichent %>
+
+
+<H2 class="text-center">DECLINED RENTALS</H2>
+<hr>
+<% if current_user.rentals.where(status: "declined").count > 0 %>
+    <% @user.rentals.where(status: "declined").each do |rental|%>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <p><%= rental.starting_date %></p>
+          <p><%= rental.end_date %></p>
+          <p>XXX $</p>
+        </div>
       </div>
-</div>
+    <% end %>
+<% else %>
+  <p>You don't have declined rentals</p>
+<% end %>
 
 
-<% @user.rentals.where(status: "pending") do |rental|%>
-  <H2 class="text-center">PENDING RENTALS</H2>
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-
-      <h2><%= rental.name %></h2>
-      <h3><%= rental.starting_date %></h3>
-      <h3><%= rental.end_date %></h3>
-      <h3>XXX $</h3>
+<H2 class="text-center">PAST RENTALS</H2>
+<hr>
+<% if current_user.rentals.where(status: "past").count > 0 %>
+    <% @user.rentals.where(status: "past") do |rental|%>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <p><%= rental.starting_date %></p>
+        <p><%= rental.end_date %></p>
+        <p>XXX $</p>
       </div>
-      <%# TODO >>>> si je suis un owner, les boutons decline et accept s'affichent %>
-</div>
-
-<% @user.rentals.where(status: "declined") do |rental|%>
-  <H2 class="text-center">DECLINED RENTALS</H2>
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-
-      <h2><%= rental.name %></h2>
-      <h3><%= rental.starting_date %></h3>
-      <h3><%= rental.end_date %></h3>
-      <h3>XXX $</h3>
-      </div>
-</div>
-<% @user.rentals.where(status: "past") do |rental|%>
-  <H2 class="text-center">PAST RENTALS</H2>
-  <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-product-infos">
-      <h2><%= rental.name %></h2>
-      <h3><%= rental.starting_date %></h3>
-      <h3><%= rental.end_date %></h3>
-      <h3>XXX $</h3>
-      </div>
-</div>
+    </div>
+<% end %>
+    <% else %>
+  <p>You don't have past rentals</p>
+<% end %>
