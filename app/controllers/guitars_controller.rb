@@ -30,7 +30,7 @@ class GuitarsController < ApplicationController
 
   def update
     if @guitar.update(guitar_params)
-      redirect_to root, notice: "Guitar was successfully updated."
+      redirect_to guitar_path, notice: "Guitar was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -38,7 +38,7 @@ class GuitarsController < ApplicationController
 
   def destroy
     @guitar.destroy
-    redirect_to guitar_path, status: :see_other
+    redirect_to guitars_path, status: :see_other
   end
 
 
