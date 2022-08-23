@@ -18,6 +18,8 @@
   </li>
 </ul>
 
+
 <div class="d-flex justify-content-evenly">
   <%=link_to "EDIT", edit_guitar_path(@guitar)%>
+  <%= button_to "Delete Guitar", @guitar, method: :delete, class: "btn btn-danger  text-color-white mt-3" %>
 </div>

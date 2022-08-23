@@ -10,11 +10,13 @@ class GuitarsController < ApplicationController
 
   def new
     @guitar = Guitar.new
+
   end
 
   def create
     @guitar = Guitar.new(guitar_params)
-    @guitar.user_id = current_user
+
+    @guitar.user = current_user
 
     if @guitar.save
       redirect_to guitar_path(@guitar)
@@ -28,7 +30,7 @@ class GuitarsController < ApplicationController
 
   def update
     if @guitar.update(guitar_params)
-      redirect_to root, notice: "Guitar was successfully updated."
+      redirect_to guitar_path, notice: "Guitar was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +38,7 @@ class GuitarsController < ApplicationController
 
   def destroy
     @guitar.destroy
-    redirect_to guitar_path, status: :see_other
+    redirect_to guitars_path, status: :see_other
   end
 
 
@@ -47,6 +49,6 @@ class GuitarsController < ApplicationController
   end
 
   def guitar_params
-    params.require(:guitar).permit(:name, :brand, :category, :location, :daily_price)
+    params.require(:guitar).permit(:name, :brand, :description, :category, :location, :daily_price)
   end
 end
