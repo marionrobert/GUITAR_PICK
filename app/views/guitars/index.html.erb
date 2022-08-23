@@ -1,9 +1,2 @@
-<h1>Here are the available guitars</h1>
-
-<% @guitars.each do |guitar| %>
-<%= guitar.name %>
-<%= guitar.brand %>
-<%= guitar.category %>
-<%= guitar.location %>
-<%= guitar.daily_price %>
-<% end %>
+<h1 class ='text-center'>Here are the available guitars</h1>
+  <%= render partial: 'guitars/guitar'%>
