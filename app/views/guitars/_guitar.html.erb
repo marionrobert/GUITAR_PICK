@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-around">
+      <% @guitars.each do |guitar| %></li><br>
+        <%= link_to guitar_path(guitar), class:'col-4' do %>
+        <div class="card">
+          <ul>
+            <li>
+            <h4>GUITAR NAME</h4>
+            <%= guitar.name %>
+            </li>
+            <li>
+            <h4>BRAND</h4>
+            <%= guitar.brand %>
+            </li>
+            <li>
+            <h4>CATEGORY</h4>
+            <%= guitar.category %>
+            </li>
+            <li>
+            <h4>LOCATION</h4>
+            <%= guitar.location %>
+            </li>
+            <li><h4>DAILY_PRICE</h4>
+            <%= guitar.daily_price %>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
