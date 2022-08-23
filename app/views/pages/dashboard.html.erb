@@ -1,2 +1,67 @@
-<h1>dashboard</h1>
-<%= @user %>
+<h1>Hello</h1>
+<h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
+
+
+<% if current_user.rentals > 0 %>
+  <%# si j'ai des rentals, alors je vais afficher les rnetals par catégorie %>
+  <p>j'ai des rentals</p>
+<% else %>
+  <%# sinon, j'affiche "vous n'avez pas ecore de rentals" %>
+  <h1>Rentals</h1>
+  <hr>
+  <p>je n'ai pas de rentals</p>
+<% end %>
+
+
+
+<% current_user.rentals.where(status: "accepted") do |rental|%>
+  <H2 class="text-center">ACCEPTED RENTALS</H2>
+  <hr>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= rental.name %></h2>
+      <h3><%= rental.starting_date %></h3>
+      <h3><%= rental.end_date %></h3>
+      <h3>XXX $</h3>
+      </div>
+</div>
+
+
+<% @user.rentals.where(status: "pending") do |rental|%>
+  <H2 class="text-center">PENDING RENTALS</H2>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+
+      <h2><%= rental.name %></h2>
+      <h3><%= rental.starting_date %></h3>
+      <h3><%= rental.end_date %></h3>
+      <h3>XXX $</h3>
+      </div>
+      <%# TODO >>>> si je suis un owner, les boutons decline et accept s'affichent %>
+</div>
+
+<% @user.rentals.where(status: "declined") do |rental|%>
+  <H2 class="text-center">DECLINED RENTALS</H2>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+
+      <h2><%= rental.name %></h2>
+      <h3><%= rental.starting_date %></h3>
+      <h3><%= rental.end_date %></h3>
+      <h3>XXX $</h3>
+      </div>
+</div>
+<% @user.rentals.where(status: "past") do |rental|%>
+  <H2 class="text-center">PAST RENTALS</H2>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= rental.name %></h2>
+      <h3><%= rental.starting_date %></h3>
+      <h3><%= rental.end_date %></h3>
+      <h3>XXX $</h3>
+      </div>
+</div>

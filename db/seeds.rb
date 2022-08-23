@@ -19,5 +19,7 @@ User.create!(username: "Aurelien", email: "aur@gmail.com", password: "123456", d
 Guitar.create!(name: "Awesome vintage Fender Stratocaster", description: "Nice 1964 Fender Stratocaster, perfect for any type of music", brand: "Fender", category: "Electric Guitars", location: "Paris", daily_price: 160.50, user: User.all.sample)
 Guitar.create!(name: "Taylor 114ce Walnut", description: "A very pure sound and a very fine material, a perfect body zise with an extraordinary griff.", brand: "Taylor", category: "Acoustic Guitars", location:"London", daily_price: 80.20, user: User.all.sample)
 
-Rental.create!(starting_date: DateTime.parse("09/01/2022 09:00"), end_date: DateTime.parse("12/01/2022 17:00"), status: "nil" , user: User.first, guitar: Guitar.all.sample )
-Rental.create!(starting_date: DateTime.parse("01/03/2022 11:00"), end_date: DateTime.parse("04/03/2022 18:00"), status: "nil", user: User.second, guitar: Guitar.all.sample)
+Rental.create!(starting_date: DateTime.parse("09/01/2022 09:00"), end_date: DateTime.parse("12/01/2022 17:00"), status: "accepted" , user: User.first, guitar: Guitar.all.sample )
+Rental.create!(starting_date: DateTime.parse("01/03/2022 11:00"), end_date: DateTime.parse("04/03/2022 18:00"), status: "pending", user: User.second, guitar: Guitar.all.sample)
+Rental.create!(starting_date: DateTime.parse("01/09/2021 09:00"), end_date: DateTime.parse("12/09/2021 17:00"), status: "declined" , user: User.first, guitar: Guitar.all.sample )
+Rental.create!(starting_date: DateTime.parse("01/04/2022 11:00"), end_date: DateTime.parse("04/04/2022 18:00"), status: "past", user: User.second, guitar: Guitar.all.sample)
