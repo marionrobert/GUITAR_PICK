@@ -1,29 +1,26 @@
-<h1>Hello from the show of the <%= @guitar.name %></h1>
-<% render partial: "guitarcard"%>
+<div class="container m-5"></div>
+
+  <div class="main-grid">
+    <div class="guitar-show-div m-5">
+      <h2><%= @guitar.name %></h2>
+      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %></p>
+      <div class="w-100">
+        <%= cl_image_tag @guitar.photo.key, width: 920, crop: :fill, class: "rounded"%>
+      </div>
+      <div class="container mt-3">
+        <h4>Description</h4>
+        <p><%= @guitar.description%></p>
+      </div>
+    </div>
+    <div class="booking-show-div d-inline-flex p-2 mt-5">
+      <%= render "book", rental: @rental, guitar: @guitar %>
+    </div>
+  </div>
+</div>
 
 
-<ul>
-<%= cl_image_tag @guitar.photo.key, height: 300, width: 400, crop: :fill %>
 
-  <li><h4>BRAND</h4>
-  <%= @guitar.brand %>
-  </li>
-  <li><h4>LOCATION</h4>
-  <%= @guitar.location %>
-  </li>
-  <li><h4>CATEGORY</h4>
-  <%= @guitar.category %>
-  </li>
-  <li><h4>DESCRIPTION</h4>
-  <%= @guitar.description%>
-  </li>
-  <li><h4>DAILY PRICE</h4>
-  <%= @guitar.daily_price%>
-  </li>
-</ul>
-
-
-<div class="d-flex justify-content-evenly">
+<div>
   <%=link_to "EDIT", edit_guitar_path(@guitar)%>
   <%= button_to "Delete Guitar", @guitar, method: :delete, class: "btn btn-danger  text-color-white mt-3" %>
 </div>
