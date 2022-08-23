@@ -14,13 +14,15 @@ guitar1 = Guitar.new(name: "Awesome vintage Fender Stratocaster", description: "
 guitar1.photo.attach(io: file, filename: "guitar1.png", content_type: "image/png")
 guitar1.save
 
-
 file = URI.open("https://www.guitaremag.com/wp-content/uploads/sites/2/2020/05/Taylor-Beauty-guitar-on-sofa-1170x780.jpg")
 guitar2 = Guitar.create!(name: "Taylor 114ce Walnut", description: "A very pure sound and a very fine material, a perfect body zise with an extraordinary griff.", brand: "Taylor", category: "Acoustic", location:"London", daily_price: 80.20, user: User.all.sample)
 guitar2.photo.attach(io: file, filename: "guitar2.png", content_type: "image/png")
 guitar2.save
 
+Rental.create!(starting_date: DateTime.parse("09/01/2022 09:00"), end_date: DateTime.parse("12/01/2022 17:00"), status: "accepted" , user: User.first, guitar: Guitar.all.sample )
+Rental.create!(starting_date: DateTime.parse("01/03/2022 11:00"), end_date: DateTime.parse("04/03/2022 18:00"), status: "pending", user: User.second, guitar: Guitar.all.sample)
+Rental.create!(starting_date: DateTime.parse("01/09/2021 09:00"), end_date: DateTime.parse("12/09/2021 17:00"), status: "declined" , user: User.first, guitar: Guitar.all.sample )
+Rental.create!(starting_date: DateTime.parse("01/04/2022 11:00"), end_date: DateTime.parse("04/04/2022 18:00"), status: "past", user: User.second, guitar: Guitar.all.sample)
 
-
-Rental.create!(starting_date: DateTime.parse("09/01/2022 09:00"), end_date: DateTime.parse("12/01/2022 17:00"), status: "nil" , user: User.first, guitar: Guitar.all.sample )
-Rental.create!(starting_date: DateTime.parse("01/03/2022 11:00"), end_date: DateTime.parse("04/03/2022 18:00"), status: "nil", user: User.second, guitar: Guitar.all.sample)
+# BRANDS =  ["Fender", "Gibson"]
+# CATEGORIES = ["Electric", "Acoustic", "Bass"]
