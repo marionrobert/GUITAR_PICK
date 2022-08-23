@@ -10,9 +10,11 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.guitar = @guitar
     @rental.user = current_user
-    if @rental.save
+    if @rental.save!
+
       redirect_to dashboard_path
     else
+      raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -40,7 +42,7 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:starting_date, :ending_date)
+    params.require(:rental).permit(:starting_date, :end_date)
     # ne pas oublier de mettre un validates status avec une valeur par defaut à nil ou pending
   end
 end
