@@ -2,6 +2,26 @@
 <% render partial: "guitarcard"%>
 
 
+<ul>
+<%= cl_image_tag @guitar.photo.key, height: 300, width: 400, crop: :fill %>
+
+  <li><h4>BRAND</h4>
+  <%= @guitar.brand %>
+  </li>
+  <li><h4>LOCATION</h4>
+  <%= @guitar.location %>
+  </li>
+  <li><h4>CATEGORY</h4>
+  <%= @guitar.category %>
+  </li>
+  <li><h4>DESCRIPTION</h4>
+  <%= @guitar.description%>
+  </li>
+  <li><h4>DAILY PRICE</h4>
+  <%= @guitar.daily_price%>
+  </li>
+</ul>
+
 
 <div class="d-flex justify-content-evenly">
   <%=link_to "EDIT", edit_guitar_path(@guitar)%>
