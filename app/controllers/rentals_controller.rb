@@ -10,22 +10,23 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.guitar = @guitar
     @rental.user = current_user
+    @rental.status = "pending"
     if @rental.save!
-
       redirect_to dashboard_path
     else
-      raise
       render :new, status: :unprocessable_entity
     end
   end
 
   def accept
-    @rental.status = "validated"
+    raise
+    @rental.status = "accepted"
     @rental.save
     redirect_to dashboard_path
   end
 
   def decline
+    raise
     @rental.status = "declined"
     @rental.save
     redirect_to dashboard_path
