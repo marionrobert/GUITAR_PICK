@@ -7,7 +7,6 @@ class RentalsController < ApplicationController
   end
 
   def create
-    
     @rental = Rental.new(rental_params)
     @rental.guitar = @guitar
     @rental.user = current_user
@@ -20,14 +19,12 @@ class RentalsController < ApplicationController
   end
 
   def accept
-    raise
     @rental.status = "accepted"
     @rental.save
     redirect_to dashboard_path
   end
 
   def decline
-    raise
     @rental.status = "declined"
     @rental.save
     redirect_to dashboard_path
@@ -36,7 +33,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_find
-    @rental = Rental.find(params[:id])
+    @rental = Rental.find(params[:rental_id])
   end
 
   def guitar_find
