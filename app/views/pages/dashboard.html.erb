@@ -1,4 +1,5 @@
 
+
 <%# <div class="container"> %>
   <h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
 
@@ -6,30 +7,42 @@
 
   <% if current_user.guitars.count > 0 %>
     <%= render partial: 'pages/guitars-rentals-grid'%>
-
-    <% else %>
+  <% else %>
       <p>Sorry, you don't have any guitars! FOR NOW!</p>
   <% end  %>
 
-  <h2>OWNER</h2>
+  <h2 class="pt-5">OWNER</h2>
   <hr>
 
-  <h2>Pending rentals</h2>
-  <%= render partial: 'pages/pending-rentals-grid'%>
+  <h3 class="pt-2">Pending rentals</h3>
+  <% if @owner_pending_rentals.count > 0 %>
+    <%= render partial: 'pages/pending-rentals-grid'%>
+  <% else %>
+    <p>You don't have pending rentals</p>
+  <% end %>
 
 
-  <h2>Accepted rentals</h2>
-  <%= render partial: 'pages/accepted-rentals-grid'%>
+  <h3 class="pt-2">Accepted rentals</h3>
+  <% if @owner_accepted_rentals.count > 0 %>
+    <%= render partial: 'pages/accepted-rentals-grid'%>
+  <% else %>
+    <p>You don't have accepted rentals</p>
+  <% end %>
 
 
-  <h2>Declined rentals</h2>
+  <h3 class="pt-2">Declined rentals</h3>
+  <% if @owner_declined_rentals.count > 0 %>
     <%= render partial: 'pages/declined-rentals-grid'%>
+  <% else %>
+    <p>You don't have declined rentals</p>
+  <% end %>
 
 
 
-  <h2>RENTER</h2>
+  <h2 class="pt-5">RENTER</h2>
+  <hr>
 
-  <h2>Accepted booking</h2>
+  <h3 class="pt-2">Accepted booking</h3>
 
   <% if @renter_accepted_rentals.count > 0 %>
     <%= render partial: 'pages/accepted-bookings-grid'%>
@@ -38,7 +51,7 @@
   <% end %>
 
 
-  <h2>Pending bookings</h2>
+  <h3 class="pt-2">Pending bookings</h3>
   <hr>
   <% if @renter_pending_rentals.count > 0 %>
     <%= render partial: 'pages/pending-bookings-grid'%>
@@ -48,7 +61,7 @@
 
 
 
-  <h2>Declined bookings</h2>
+  <h3 class="pt-2">Declined bookings</h3>
   <hr>
   <% if @renter_declined_rentals.count > 0 %>
     <%= render partial: 'pages/declined-bookings-grid'%>
