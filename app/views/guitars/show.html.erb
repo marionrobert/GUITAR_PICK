@@ -4,7 +4,10 @@
     <div class="guitar-show-div m-5">
       <h2><%= @guitar.name %></h2>
       <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %></p>
-      <%= cl_image_tag @guitar.photo.key,  height: 400, crop: :fill, class: "rounded w-100" %>
+      <div class="w-100">
+        <%= cl_image_tag @guitar.photo.key, crop: :fill, class: "rounded show-img "%>
+      </div>
+
       <div class="container mt-3">
         <h4>Description</h4>
         <p><%= @guitar.description%></p>
