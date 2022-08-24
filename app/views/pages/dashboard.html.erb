@@ -54,7 +54,7 @@
         </div>
         <div class="actions">
           <%= link_to 'Accept', rental_accept_path(rental) %>
-          <%= link_to 'Decline', decline_accept_path(rental) %>
+          <%= link_to 'Decline', rental_decline_path(rental) %>
         </div>
       </div>
   <% end %>
@@ -151,5 +151,3 @@
 <% else %>
   <p>You don't have declined rentals</p>
 <% end %>
-
-<% console %>
