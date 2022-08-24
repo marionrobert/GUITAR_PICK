@@ -1,5 +1,6 @@
 
 .footer {
+  margin-top: 100px;
   background: $darkblue;
   display: flex;
   align-items: center;
@@ -8,7 +9,7 @@
   width: 100%;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   align-items: center;
 }
