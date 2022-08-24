@@ -1,2 +1,8 @@
-<h1 class ='text-center'>Here are the available guitars</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("guitars-bg.jpg") %>);">
+  <div class="container">
+    <h1><strong>Guitar Pick</strong></h1>
+    <p>Find the right guitar at the right time.</p>
+    <a class="btn btn-flat" href="#">Browse Guitars</a>
+  </div>
+</div>
 <%= render partial: 'guitars/guitar'%>

@@ -1,34 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="d-flex justify-content-around">
-      <% @guitars.each do |guitar| %></li><br>
-        <%= link_to guitar_path(guitar), class:'col-4' do %>
-        <div class="card">
+  <div class="guitars m-3">
+    <% @guitars.each do |guitar| %>
+      <div class="card-guitar">
         <%= cl_image_tag guitar.photo.key, height: 300, width: 400, crop: :fill %>
-          <ul>
-            <li>
-            <h4>GUITAR NAME</h4>
-            <%= guitar.name %>
-            </li>
-            <li>
-            <h4>BRAND</h4>
-            <%= guitar.brand %>
-            </li>
-            <li>
-            <h4>CATEGORY</h4>
-            <%= guitar.category %>
-            </li>
-            <li>
-            <h4>LOCATION</h4>
-            <%= guitar.location %>
-            </li>
-            <li><h4>DAILY_PRICE</h4>
-            <%= guitar.daily_price %>
-            </li>
-          </ul>
+        <div class="card-guitar-infos">
+          <div>
+            <h2><%= guitar.name %></h2>
+            <p class="mt-2"><%= guitar.category %> - <%= guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= guitar.location %></p>
+            <p class="mt-2"><%= guitar.description %></p>
+          </div>
+          <h2 class="card-trip-pricing m-2"> <%= guitar.daily_price %>€/day</h2>
+          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         </div>
-        <% end %>
-      <% end %>
-    </div>
+
+          <%#= button_to guitar_path(guitar) %>
+
+      </div>
+    <% end %>
   </div>
 </div>
