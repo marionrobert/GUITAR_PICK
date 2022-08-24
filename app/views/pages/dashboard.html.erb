@@ -1,155 +1,97 @@
 
-<h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
+<%# <div class="container"> %>
+  <h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
 
-<br>
-<br>
-<br>
-<h2>Here are you guitars</h2>
-<hr>
-<% if current_user.guitars.count > 0 %>
-  <p>You have guitars! congratulations!</p>
-  <% current_user.guitars.each do|guitar|  %>
-  <ul>
-    <li><h4>BRAND</h4>
-    <%= guitar.brand %>
-    </li>
-    <li><h4>LOCATION</h4>
-    <%= guitar.location %>
-    </li>
-    <li><h4>CATEGORY</h4>
-    <%= guitar.category %>
-    </li>
-    <li><h4>DESCRIPTION</h4>
-    <%= guitar.description%>
-    </li>
-    <li><h4>DAILY PRICE</h4>
-    <%= guitar.daily_price%>
-    </li>
-  </ul>
+  <br>
+  <br>
+  <br>
+  <h2>Here are you guitars</h2>
+  <hr>
+  <% if current_user.guitars.count > 0 %>
+    <%= render partial: 'pages/guitars-rentals-grid'%>
+
+    <% else %>
+      <p>Sorry, you don't have any guitars! FOR NOW!</p>
+  <% end  %>
+
+  <h2>OWNER</h2>
+  <hr>
+
+  <h2>Pending rentals</h2>
+  <%= render partial: 'pages/pending-rentals-grid'%>
+
+
+  <h2>Accepted rentals</h2>
+  <hr>
+
+  <%= render partial: 'pages/accepted-rentals-grid'%>
+
+
+
+  <h2>Declined rentals</h2>
+    <%= render partial: 'pages/accepted-rentals-grid'%>
+
+
+
+
+  <br>
+  <br><br>
+  <h2>RENTER</h2>
+  <hr>
+
+  <h2>Accepted rentals</h2>
+  <hr>
+  <% if @renter_accepted_rentals.count > 0 %>
+      <% @renter_accepted_rentals.each do |rental|%>
+        <div class="card-product mb-5">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <p><%= rental.starting_date %></p>
+            <p><%= rental.end_date %></p>
+            <p>XXX $</p>
+          </div>
+        </div>
+      <% end %>
+  <% else %>
+    <p>You don't have accepted rentals</p>
   <% end %>
-<% else %>
-  <p>Sorry, you don't have any guitars! FOR NOW!</p>
-<% end  %>
 
 
-
-<br>
-<br>
-<br>
-
-
-<h2>OWNER</h2>
-<hr>
-
-<h2>Incoming rentals</h2>
-<hr>
-<div>
-  <% @owner_pending_rentals.each do |rental| %>
-    <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <p><%= rental.starting_date %></p>
-          <p><%= rental.end_date %></p>
-          <p>XXX $</p>
+  <h2>Pending rentals</h2>
+  <hr>
+  <% if @renter_pending_rentals.count > 0 %>
+      <% @renter_pending_rentals.each do |rental|%>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <p><%= rental.starting_date %></p>
+            <p><%= rental.end_date %></p>
+            <p>XXX $</p>
+          </div>
         </div>
-        <div class="actions">
-          <%= link_to 'Accept', rental_accept_path(rental) %>
-          <%= link_to 'Decline', decline_accept_path(rental) %>
-        </div>
-      </div>
+      <% end %>
+  <% else %>
+    <p>You don't have pending rentals</p>
   <% end %>
-</div>
-<br>
-<h2>Accepted rentals</h2>
-<hr>
-<div>
-  <% @owner_accepted_rentals.each do |rental| %>
-    <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <p><%= rental.starting_date %></p>
-          <p><%= rental.end_date %></p>
-          <p>XXX $</p>
+
+
+
+  <h2>Declined rentals</h2>
+  <hr>
+  <% if @renter_declined_rentals.count > 0 %>
+      <% @renter_declined_rentals.each do |rental|%>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <p><%= rental.starting_date %></p>
+            <p><%= rental.end_date %></p>
+            <p>XXX $</p>
+          </div>
         </div>
-      </div>
+      <% end %>
+  <% else %>
+    <p>You don't have declined rentals</p>
   <% end %>
-</div>
-<br>
-<h2>Declined rentals</h2>
-<hr>
-<div>
-  <% @owner_declined_rentals.each do |rental| %>
-    <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <p><%= rental.starting_date %></p>
-          <p><%= rental.end_date %></p>
-          <p>XXX $</p>
-        </div>
-      </div>
-  <% end %>
-</div>
 
 
-
-
-<br>
-<br><br>
-<h2>RENTER</h2>
-<hr>
-
-<h2>Accepted rentals</h2>
-<hr>
-<% if @renter_accepted_rentals.count > 0 %>
-    <% @renter_accepted_rentals.each do |rental|%>
-      <div class="card-product mb-5">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <p><%= rental.starting_date %></p>
-          <p><%= rental.end_date %></p>
-          <p>XXX $</p>
-        </div>
-      </div>
-    <% end %>
-<% else %>
-  <p>You don't have accepted rentals</p>
-<% end %>
-
-
-<h2>Pending rentals</h2>
-<hr>
-<% if @renter_pending_rentals.count > 0 %>
-    <% @renter_pending_rentals.each do |rental|%>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <p><%= rental.starting_date %></p>
-          <p><%= rental.end_date %></p>
-          <p>XXX $</p>
-        </div>
-      </div>
-    <% end %>
-<% else %>
-  <p>You don't have pending rentals</p>
-<% end %>
-
-
-
-<h2>Declined rentals</h2>
-<hr>
-<% if @renter_declined_rentals.count > 0 %>
-    <% @renter_declined_rentals.each do |rental|%>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <p><%= rental.starting_date %></p>
-          <p><%= rental.end_date %></p>
-          <p>XXX $</p>
-        </div>
-      </div>
-    <% end %>
-<% else %>
-  <p>You don't have declined rentals</p>
-<% end %>
-
-<% console %>
+<%# </div> %>
