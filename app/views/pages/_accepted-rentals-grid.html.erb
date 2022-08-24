@@ -1,0 +1,25 @@
+
+
+  <div class="guitars m-3">
+    <% @owner_accepted_rentals.each do |guitar| %>
+      <div class="card-guitar">
+        <%= cl_image_tag guitar.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-guitar-infos">
+          <div>
+            <h2><%= guitar.name %></h2>
+            <p class="mt-2"><%= guitar.category %> - <%= guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= guitar.location %></p>
+            <p><%= rental.starting_date %></p>
+            <p><%= rental.end_date %></p>
+          </div>
+          <div class="d-flex flex-column align-items-end m-2">
+            <h2 class="card-trip-pricing m-2"> <%= guitar.daily_price %>€/day</h2>
+          </div>
+          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+        </div>
+
+          <%#= button_to guitar_path(guitar) %>
+
+      </div>
+    <% end %>
+  </div>
+</div>
