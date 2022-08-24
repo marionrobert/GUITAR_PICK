@@ -2,11 +2,8 @@
 <%# <div class="container"> %>
   <h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
 
-  <br>
-  <br>
-  <br>
   <h2>Here are you guitars</h2>
-  <hr>
+
   <% if current_user.guitars.count > 0 %>
     <%= render partial: 'pages/guitars-rentals-grid'%>
 
@@ -32,63 +29,31 @@
 
 
 
-
-  <br>
-  <br><br>
   <h2>RENTER</h2>
-  <hr>
 
-  <h2>Accepted rentals</h2>
-  <hr>
+  <h2>Accepted booking</h2>
+
   <% if @renter_accepted_rentals.count > 0 %>
-      <% @renter_accepted_rentals.each do |rental|%>
-        <div class="card-product mb-5">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <p><%= rental.starting_date %></p>
-            <p><%= rental.end_date %></p>
-            <p>XXX $</p>
-          </div>
-        </div>
-      <% end %>
+    <%= render partial: 'pages/accepted-bookings-grid'%>
   <% else %>
     <p>You don't have accepted rentals</p>
   <% end %>
 
 
-  <h2>Pending rentals</h2>
+  <h2>Pending bookings</h2>
   <hr>
   <% if @renter_pending_rentals.count > 0 %>
-      <% @renter_pending_rentals.each do |rental|%>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <p><%= rental.starting_date %></p>
-            <p><%= rental.end_date %></p>
-            <p>XXX $</p>
-          </div>
-        </div>
-      <% end %>
+    <%= render partial: 'pages/pending-bookings-grid'%>
   <% else %>
     <p>You don't have pending rentals</p>
   <% end %>
 
 
 
-  <h2>Declined rentals</h2>
+  <h2>Declined bookings</h2>
   <hr>
   <% if @renter_declined_rentals.count > 0 %>
-      <% @renter_declined_rentals.each do |rental|%>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <p><%= rental.starting_date %></p>
-            <p><%= rental.end_date %></p>
-            <p>XXX $</p>
-          </div>
-        </div>
-
-      <% end %>
+    <%= render partial: 'pages/declined-bookings-grid'%>
   <% else %>
     <p>You don't have declined rentals</p>
   <% end %>
