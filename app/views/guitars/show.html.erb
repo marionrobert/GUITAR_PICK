@@ -5,7 +5,7 @@
       <h2><%= @guitar.name %></h2>
       <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %></p>
       <div class="w-100">
-        <%= cl_image_tag @guitar.photo.key, width: 920, crop: :fill, class: "rounded"%>
+        <%= cl_image_tag @guitar.photo.key, width: 600, crop: :fill, class: "rounded"%>
       </div>
       <div class="container mt-3">
         <h4>Description</h4>

@@ -34,8 +34,8 @@ guitar5 = Guitar.create!(name: "Kurt Cobain Jag-Stang", description: "This Jag-S
 guitar5.photo.attach(io: file, filename: "guitar5.png", content_type: "image/png")
 guitar5.save
 
-file = URI.open("https://res.cloudinary.com/dtxhgfzpd/image/upload/v1661332933/production/pexels-photo-3807838_qlfxon.jpg")
-guitar6 = Guitar.create!(name: "Fender Player Mustang", description: "Versatile sound, classic style.", brand: "Fender", category: "Bass", location:"Paris", daily_price: 90.50, user: User.all.sample)
+file = URI.open("https://res.cloudinary.com/dtxhgfzpd/image/upload/v1661335948/production/AD17Blacktop-Gallery_1_bugm9u.jpg")
+guitar6 = Guitar.create!(name: "Taylor AD17 Blacktop", description: "The AD17 Blacktop is an all-acoustic guitar that blends a contemporary feel with a classic sound.", brand: "Taylor", category: "Acoustic", location:"Paris XX", daily_price: 92.00, user: User.all.sample)
 guitar6.photo.attach(io: file, filename: "guitar6.png", content_type: "image/png")
 guitar6.save
 
@@ -44,7 +44,7 @@ guitar7 = Guitar.create!(name: "Epiphone Les Paul Studio", description: "An incr
 guitar7.photo.attach(io: file, filename: "guitar7.png", content_type: "image/png")
 guitar7.save
 
-file = URI.open("https://res.cloudinary.com/dtxhgfzpd/image/upload/v1661334827/production/red_epiphone_bass_d5bcjz.jpg")
+file = URI.open("https://res.cloudinary.com/dtxhgfzpd/image/upload/v1661337074/production/red_epiphone_bass_d5bcjz.jpg")
 guitar8 = Guitar.create!(name: "Epiphone SG Bass E1 Cherry", description: "This bass makes the authentic SG shape available to all bass players with its easy to play neck and total fret access.", brand: "Epiphone", category: "Bass", location:"Paris III", daily_price: 45.00, user: User.all.sample)
 guitar8.photo.attach(io: file, filename: "guitar8.png", content_type: "image/png")
 guitar8.save
@@ -59,8 +59,8 @@ guitar10 = Guitar.create!(name: "Taylor AD27e Flametop", description: "The AD27e
 guitar10.photo.attach(io: file, filename: "guitar10.png", content_type: "image/png")
 guitar10.save
 
-file = URI.open("https://res.cloudinary.com/dtxhgfzpd/image/upload/v1661335948/production/AD17Blacktop-Gallery_1_bugm9u.jpg")
-guitar11 = Guitar.create!(name: "Taylor AD17 Blacktop", description: "The AD17 Blacktop is an all-acoustic guitar that blends a contemporary feel with a classic sound.", brand: "Taylor", category: "Acoustic", location:"Paris XX", daily_price: 92.00, user: User.all.sample)
+file = URI.open("https://res.cloudinary.com/dtxhgfzpd/image/upload/v1661332933/production/pexels-photo-3807838_qlfxon.jpg")
+guitar11 = Guitar.create!(name: "Fender Player Mustang", description: "Versatile sound, classic style.", brand: "Fender", category: "Bass", location:"Paris", daily_price: 90.50, user: User.all.sample)
 guitar11.photo.attach(io: file, filename: "guitar11.png", content_type: "image/png")
 guitar11.save
 
