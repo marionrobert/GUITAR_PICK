@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
 
   resources :guitars do
-    resources :rentals, only: %i[ new create] do
-      get "accept", to: "rentals#accept"
-      get "decline", to: "rentals#decline"
-    end
+    resources :rentals, only: %i[ new create]
+  end
+
+  resources :rentals, except: %i[ new create] do
+    get "accept", to: "rentals#accept"
+    get "decline", to: "rentals#decline"
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
