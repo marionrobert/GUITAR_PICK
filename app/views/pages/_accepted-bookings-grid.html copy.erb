@@ -1,7 +1,7 @@
 
 
   <div class="guitars m-3">
-    <% @owner_declined_rentals.each do |rental| %>
+    <% @renter_accepted_rentals.each do |rental| %>
       <div class="card-guitar">
         <%= cl_image_tag rental.guitar.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-guitar-infos">
