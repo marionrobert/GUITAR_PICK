@@ -24,5 +24,11 @@ class PagesController < ApplicationController
 
   def home
     @guitars = Guitar.all
+    @markers = @guitars.geocoded.map do |guitar|
+      {
+        lat: guitar.latitude,
+        lng: guitar.longitude
+      }
+    end
   end
 end
