@@ -3,6 +3,13 @@ class GuitarsController < ApplicationController
 
   def index
     @guitars = Guitar.all
+  # The `geocoded` scope filters only guitars with coordinates
+    @markers = @guitars.geocoded.map do |guitar|
+    {
+      lat: guitar.latitude,
+      lng: guitar.longitude
+    }
+    end
   end
 
   def show
