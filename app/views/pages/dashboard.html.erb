@@ -5,10 +5,10 @@
   <div class="col-2 left-menu align-self-start d-flex flex-column position-sticky">
     <div class="d-flex flex-column justify-content-center pt-3">
       <div class="d-flex justify-content-center">
-        <%= image_tag"kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png", width:50, class:"avatar justify-content-center"%>
+        <%= cl_image_tag find_user_avatar, class:"avatar-large "  %>
       </div>
       <div class="d-flex justify-content-center">
-        <h3 class="mt-3">Hello <%= current_user.username%> !</h3>
+        <p class="mt-3">Hello <%= current_user.username%> !</p>
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -41,19 +41,13 @@
         <!--Upcoming booking / Last one -->
         <div class="col-4 tile">
           <h2>Upcoming booking</h2>
-          <div class="card-guitar">
-            <%= cl_image_tag @renter_accepted_rentals.last.guitar.photo.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-guitar-infos">
-              <div>
-                <h2><%= @renter_accepted_rentals.last.guitar.name %></h2>
-                <p class="mt-2"><%= @renter_accepted_rentals.last.guitar.category %> - <%= @renter_accepted_rentals.last.guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @renter_accepted_rentals.last.guitar.address %></p>
-                <p>Start date: <%= @renter_accepted_rentals.last.starting_date %></p>
-                <p>End date: <%= @renter_accepted_rentals.last.end_date %></p>
-              </div>
-              <div class="d-flex flex-column align-items-end m-2">
-                <h2 class="card-trip-pricing m-2"> <%= @renter_accepted_rentals.last.guitar.daily_price %>€/day</h2>
-              </div>
-            </div>
+
+          <div class="mt-3">
+            <% if @renter_accepted_rentals.count > 0 %>
+              <%= render partial: 'pages/upcoming-booking'%>
+            <% else %>
+              <p>You don't have any upcoming booking</p>
+            <% end %>
           </div>
         </div>
       </div>
