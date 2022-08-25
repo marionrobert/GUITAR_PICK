@@ -16,4 +16,8 @@ class PagesController < ApplicationController
 
   end
 
+  def home
+    @guitars = Guitar.all
+  end
+
 end
