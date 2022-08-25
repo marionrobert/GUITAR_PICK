@@ -3,7 +3,7 @@
   <div class="main-grid">
     <div class="guitar-show-div m-5">
       <h2><%= @guitar.name %></h2>
-      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %></p>
+      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.address %></p>
 
       <% if @guitar.photo.attached? %>
         <%= cl_image_tag @guitar.photo.key, height: 400, width: 400, crop: :fill %>

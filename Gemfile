@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 #devise
 gem "devise"
 
+gem "geocoder"
+
 gem "cloudinary"
 
 gem "dotenv-rails", groups: [:development, :test]
