@@ -4,11 +4,35 @@ Rental.destroy_all
 Guitar.destroy_all
 User.destroy_all
 
-User.create!(username: "Thomas", email: "tho@gmail.com", password: "123456", description: "rockeur fou")
-User.create!(username: "Marion", email: "mar@gmail.com", password: "123456", description: "rockeuse de diamant")
-User.create!(username: "Jessica", email: "jes@gmail.com", password: "123456", description: "USA ROCKS!")
-User.create!(username: "Aurelien", email: "aur@gmail.com", password: "123456", description: "celui qui ne sait jouer de rien")
+# Creation of a first User to give a defaultavatar when you want to display an avatar to a user who didn't choose a picture >>>> never delete this one!
+test_user = User.new(username: "Samantha", email:"samantha@gmail.com", password: "123456", description: "sunday rocker")
+file = URI.open("https://png2.cleanpng.com/sh/b0e7610f11398f1699f22ee9f196ab25/L0KzQYm3VMA2N5V5j5H0aYP2gLBuTfxwb5pzRdl4b3fvdX7ogBNwfZ95RdV4bYD4hLb5Tflkd594Red8ZYKwcbT7igZqfKoyTdNsNnLldYi7gfE4bmIzTqMAN0K5RIO4VcIzQWg4Tqk6M0C4SHB3jvc=/kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png")
+test_user.avatar.attach(io: file, filename: "avatar.png")
+test_user.save!
 
+#Creation of 4 users
+file = URI.open("https://avatars.githubusercontent.com/u/96238196?v=4")
+thomas = User.new(username: "Thomas", email: "tho@gmail.com", password: "123456", description: "crazy rocker")
+thomas.avatar.attach(io: file, filename: "avatar.png")
+thomas.save!
+
+file = URI.open("https://avatars.githubusercontent.com/u/107509668?v=4")
+marion = User.create!(username: "Marion", email: "mar@gmail.com", password: "123456", description: "diamond rocker")
+marion.avatar.attach(io: file, filename: "avatar.png")
+marion.save!
+
+file = URI.open("https://avatars.githubusercontent.com/u/108519750?v=4")
+jessica = User.create!(username: "Jessica", email: "jes@gmail.com", password: "123456", description: "USA ROCKS!")
+jessica.avatar.attach(io: file, filename: "avatar.png")
+jessica.save!
+
+file = URI.open("https://avatars.githubusercontent.com/u/102169301?v=4")
+aurelien = User.create!(username: "Aurelien", email: "aur@gmail.com", password: "123456", description: "the one who does not know how to play anything")
+aurelien.avatar.attach(io: file, filename: "avatar.png")
+aurelien.save!
+
+
+#Creation of guitars
 file = URI.open("https://d1aeri3ty3izns.cloudfront.net/media/38/382873/600/preview_3.jpg")
 guitar1 = Guitar.new(name: "Awesome vintage Fender Stratocaster", description: "Nice 1964 Fender Stratocaster, perfect for any type of music", brand: "Fender", category: "Electric", location: "Paris", daily_price: 160.50, user: User.all.sample)
 guitar1.photo.attach(io: file, filename: "guitar1.png", content_type: "image/png")
