@@ -18,7 +18,6 @@ class PagesController < ApplicationController
     @renter_accepted_rentals = @renter_rentals.where(status: "accepted")
     @renter_declined_rentals = @renter_rentals.where(status: "declined")
    else
-    # member_signed_in? false
     redirect_to guitars_path, status: :see_other
    end
   end
