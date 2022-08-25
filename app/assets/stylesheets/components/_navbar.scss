@@ -15,16 +15,17 @@
 
 .navbar-lewagon .navbar-brand img {
   position: absolute;
-  top: 5px;
+  top: 15px;
   left: 5px;
-  width: 45px;
+  width: 90px;
 }
 
 .navbar-brand img:hover {
-  transition-duration: 200ms;
-  top: 2px;
+  transition-duration: 300ms;
+  transform: rotate(-90deg);
+  top: 12px;
   left: 2px;
-  width: 51px;
+  width: 96px;
 }
 
       .dashboard-btn {
