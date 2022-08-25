@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner", style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path("guitars-bg.jpg") %>)">
+  <div class="container">
+    <div class="pt-5">
+        <h1><strong>Guitar Pick</strong></h1>
+        <p>Find the right guitar at the right time.</p>
+        <%= link_to "Browse Guitars", guitars_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<h2 class="mt-5">Check the available guitars around you <i class="fa-solid fa-guitar"></i></h2>
+<p>here will be the map with the available guitars </p>
