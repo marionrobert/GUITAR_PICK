@@ -12,7 +12,11 @@
    </div>
 
   <div class="form-actions">
+      <%if user_signed_in? %>
     <%= f.button :submit, class: "btn btn-primary", value: 'Book!' %>
+    <% else %>
+      <%= link_to "Book!", new_user_session_path, class:'btn btn-primary'%>
+    <% end %>
   </div>
 <% end %>
 </div>

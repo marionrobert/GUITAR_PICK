@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: :home
+  # before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: :home # si utilisateur non identifié a acces a la home (only)
+
 
   def dashboard
+
+    if user_signed_in?
     @user = current_user
 
     @owner_rentals = @user.guitars.map { |guitar| guitar.rentals }.flatten
@@ -13,7 +17,9 @@ class PagesController < ApplicationController
     @renter_pending_rentals = @renter_rentals.where(status: "pending")
     @renter_accepted_rentals = @renter_rentals.where(status: "accepted")
     @renter_declined_rentals = @renter_rentals.where(status: "declined")
-
+   else
+    # member_signed_in? false
+    redirect_to guitars_path, status: :see_other
+   end
   end
-
 end

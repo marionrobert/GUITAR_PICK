@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "guitars#index"
 
-
   get "dashboard", to: "pages#dashboard"
 
   resources :guitars do
