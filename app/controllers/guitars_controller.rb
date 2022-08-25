@@ -1,4 +1,5 @@
 class GuitarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_guitar, only: [:show, :destroy, :edit, :update]
 
   def index

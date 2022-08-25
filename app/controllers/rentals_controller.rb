@@ -1,6 +1,8 @@
 class RentalsController < ApplicationController
+  before_action :authenticate_user!
   before_action :guitar_find, only: %i[new create]
   before_action :rental_find, only: %i[accept decline]
+
 
   def new
     @rental = Rental.new

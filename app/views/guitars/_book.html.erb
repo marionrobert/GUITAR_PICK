@@ -1,3 +1,12 @@
+<div class="container m-4 p-4 border rounded position-sticky">
+<h3>Book this guitar</h3>
+
+<h5><%= @guitar.daily_price%>€ per day</h5>
+<%= simple_form_for [@guitar, @rental] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+
 <div class="booking-show-div p-2 mt-5">
   <div class="calendar">
       <%= simple_form_for [@guitar, @rental],
