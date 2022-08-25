@@ -12,22 +12,22 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.status = "pending"
     if @rental.save!
-      redirect_to dashboard_path
+      redirect_to dashboard_path, success: "You have requested to book the #{@rental.guitar.name} guitar"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: "Something went wrong. Try again!"
     end
   end
 
   def accept
     @rental.status = "accepted"
     @rental.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path, success: "You have accepted the #{@rental.guitar.name} rental."
   end
 
   def decline
     @rental.status = "declined"
     @rental.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path, alert: "You have declined the #{@rental.guitar.name} rental."
   end
 
   private
@@ -42,6 +42,5 @@ class RentalsController < ApplicationController
 
   def rental_params
     params.require(:rental).permit(:starting_date, :end_date)
-    # ne pas oublier de mettre un validates status avec une valeur par defaut à nil ou pending
   end
 end

@@ -1,0 +1,39 @@
+  <div class="row m-3 tile">
+    <h2 class="pt-5">Owner</h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#owner-pending" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Pending</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#owner-validated" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Accepted</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#owner-declined" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Declined</button>
+      </li>
+    </ul>
+
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active my-3" id="owner-pending" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <% if @owner_pending_rentals.count > 0 %>
+          <%= render partial: 'pages/pending-rentals-grid'%>
+        <% else %>
+          <p>You don't have pending rentals</p>
+        <% end %>
+      </div>
+      <div class="tab-pane fade my-3" id="owner-validated" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <% if @owner_accepted_rentals.count > 0 %>
+          <%= render partial: 'pages/accepted-rentals-grid'%>
+        <% else %>
+        <p>You don't have accepted rentals</p>
+      <% end %>
+      </div>
+      <div class="tab-pane fade my-3" id="owner-declined" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <% if @owner_declined_rentals.count > 0 %>
+          <%= render partial: 'pages/declined-rentals-grid'%>
+        <% else %>
+          <p>You don't have declined rentals</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
