@@ -1,27 +1,23 @@
-<div class="container m-2"></div>
-
+<div class="container m-2">
+</div>
   <div class="main-grid">
     <div class="guitar-show-div m-5">
-      <h2><%= @guitar.name %></h2>
-      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %></p>
+      <h2><%= @guitar.name %>
+      </h2>
+      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %>
+      </p>
       <div class="w-100">
-        <%= cl_image_tag @guitar.photo.key, crop: :fill, class: "rounded show-img "%>
+        <%= cl_image_tag @guitar.photo.key, crop: :fill, class: "rounded show-img"%>
       </div>
-
       <div class="container mt-3">
+          <div class="d-flex">
+            <%= button_to "EDIT Guitar", edit_guitar_path(@guitar), class: "btn btn-info  text-color-white mt-3" %>
+            <%= button_to "Delete Guitar", @guitar, method: :delete, class: "btn btn-danger  text-color-white mt-3" %>
+          </div>
         <h4>Description</h4>
-        <p><%= @guitar.description%></p>
+        <p><%= @guitar.description%>
+        </p>
       </div>
     </div>
-    <div class="booking-show-div d-inline-flex p-2 mt-5">
-      <%= render "book", rental: @rental, guitar: @guitar %>
-    </div>
+      <%= render "book", guitar: @guitar %>
   </div>
-</div>
-
-
-
-<div>
-  <%=link_to "EDIT", edit_guitar_path(@guitar)%>
-  <%= button_to "Delete Guitar", @guitar, method: :delete, class: "btn btn-danger  text-color-white mt-3" %>
-</div>
