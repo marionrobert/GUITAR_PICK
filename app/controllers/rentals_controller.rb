@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
     @rental.user = current_user
     @rental.status = "pending"
     if @rental.save!
-      redirect_to dashboard_path, success: "You have successfully booked the #{@rental.guitar.name} guitar"
+      redirect_to dashboard_path, success: "You have requested to book the #{@rental.guitar.name} guitar"
     else
       render :new, status: :unprocessable_entity, alert: "Something went wrong. Try again!"
     end
@@ -21,13 +21,13 @@ class RentalsController < ApplicationController
   def accept
     @rental.status = "accepted"
     @rental.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path, success: "You have accepted the #{@rental.guitar.name} rental."
   end
 
   def decline
     @rental.status = "declined"
     @rental.save
-    redirect_to dashboard_path
+    redirect_to dashboard_path, alert: "You have declined the #{@rental.guitar.name} rental."
   end
 
   private
