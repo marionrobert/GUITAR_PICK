@@ -4,8 +4,10 @@
     <div class="guitar-show-div m-5">
 
       <h2><%= @guitar.name %></h2>
-      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.location %></p>
-      <div class="w-100">
+
+      <p><%= @guitar.category %> - <%= @guitar.brand %> - <i class="fa-solid fa-location-dot"></i> <%= @guitar.address %></p>
+
+
       <% if @guitar.photo.attached? %>
         <%= cl_image_tag @guitar.photo.key, crop: :fill %>
       <%else %>
