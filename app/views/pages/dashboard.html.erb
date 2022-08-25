@@ -1,73 +1,69 @@
 
 
-<%# <div class="container"> %>
-  <h1>Hello <%= current_user.username%>, welcome to your dashboard !</h1>
+<div class="row">
+  <!--Left Menu-->
+  <div class="col-2 left-menu align-self-start d-flex flex-column position-sticky">
+    <div class="d-flex flex-column justify-content-center pt-3">
+      <div class="d-flex justify-content-center">
+        <%= cl_image_tag find_user_avatar, class:"avatar-large "  %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <p class="mt-3">Hello <%= current_user.username%> !</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <ul class="p-0 mt-3">
+        <li>
+          <%= link_to "Add a guitar", new_guitar_path %>
+        </li>
+        <li>
+          <%= link_to "Logout", destroy_user_session_path, 'data-turbo-method': :delete  %>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-  <h2>Here are you guitars</h2>
+  <div class="col-10">
+    <div class="container">
+      <div class="row m-3 gx-5">
+        <!--Listed Guitars-->
+        <div class="col-8 ps-0">
+          <div class="tile">
+            <h2>Your listed guitars</h2>
+            <% if current_user.guitars.count > 0 %>
+              <%= render partial: 'pages/guitars-rentals-grid'%>
+            <% else %>
+              <p>Sorry, you don't have any guitars!</p>
+              <%= link_to "Add a guitar", new_guitar_path %>
+            <% end  %>
+          </div>
+        </div>
+        <!--Upcoming booking / Last one -->
+        <div class="col-4 tile">
+          <h2>Upcoming booking</h2>
 
-  <% if current_user.guitars.count > 0 %>
-    <%= render partial: 'pages/guitars-rentals-grid'%>
-  <% else %>
-      <p>Sorry, you don't have any guitars! FOR NOW!</p>
-  <% end  %>
+          <div class="mt-3">
+            <% if @renter_accepted_rentals.count > 0 %>
+              <%= render partial: 'pages/upcoming-booking'%>
+            <% else %>
+              <p>You don't have any upcoming booking</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
-  <h2 class="pt-5">OWNER</h2>
-  <hr>
+      <!--Owner tab -->
+      <%= render partial: 'pages/owner-tab' if current_user.guitars.count > 0%>
 
-  <h3 class="pt-2">Pending rentals</h3>
-  <% if @owner_pending_rentals.count > 0 %>
-    <%= render partial: 'pages/pending-rentals-grid'%>
-  <% else %>
-    <p>You don't have pending rentals</p>
-  <% end %>
+      <!--Renter tab -->
+      <%= render partial: 'pages/renter-tab'%>
 
-
-  <h3 class="pt-2">Accepted rentals</h3>
-  <% if @owner_accepted_rentals.count > 0 %>
-    <%= render partial: 'pages/accepted-rentals-grid'%>
-  <% else %>
-    <p>You don't have accepted rentals</p>
-  <% end %>
-
-
-  <h3 class="pt-2">Declined rentals</h3>
-  <% if @owner_declined_rentals.count > 0 %>
-    <%= render partial: 'pages/declined-rentals-grid'%>
-  <% else %>
-    <p>You don't have declined rentals</p>
-  <% end %>
-
-
-
-  <h2 class="pt-5">RENTER</h2>
-  <hr>
-
-  <h3 class="pt-2">Accepted booking</h3>
-
-  <% if @renter_accepted_rentals.count > 0 %>
-    <%= render partial: 'pages/accepted-bookings-grid'%>
-  <% else %>
-    <p>You don't have accepted rentals</p>
-  <% end %>
-
-
-  <h3 class="pt-2">Pending bookings</h3>
-  <hr>
-  <% if @renter_pending_rentals.count > 0 %>
-    <%= render partial: 'pages/pending-bookings-grid'%>
-  <% else %>
-    <p>You don't have pending rentals</p>
-  <% end %>
+    </div>
+  </div>
+</div>
 
 
 
-  <h3 class="pt-2">Declined bookings</h3>
-  <hr>
-  <% if @renter_declined_rentals.count > 0 %>
-    <%= render partial: 'pages/declined-bookings-grid'%>
-  <% else %>
-    <p>You don't have declined rentals</p>
-  <% end %>
 
 
 <%# </div> %>

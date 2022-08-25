@@ -1,0 +1,27 @@
+.left-menu {
+  background: lightgrey;
+  min-height: 100vmax;
+  padding: 8px;
+}
+
+.left-menu a {
+  color: black;
+  opacity: 0.9;
+  text-decoration: none;
+  padding: 0px 0px;
+}
+
+.left-menu ul {
+  padding-inline-start: 40px;
+}
+
+
+
+
+
+.left-menu li {
+  font-size: 16px;
+  margin-top: 8px;
+  font-weight: bold;
+  list-style-type: none;
+}

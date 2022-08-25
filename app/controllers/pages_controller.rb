@@ -21,4 +21,8 @@ class PagesController < ApplicationController
     redirect_to guitars_path, status: :see_other
    end
   end
+
+  def home
+    @guitars = Guitar.all
+  end
 end
