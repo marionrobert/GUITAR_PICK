@@ -1,4 +1,4 @@
-  <div class="guitars m-3">
+  <div class="guitars2 m-3">
     <% current_user.guitars.each do |guitar| %>
       <div class="card-guitar">
         <%= cl_image_tag guitar.photo.key, height: 300, width: 400, crop: :fill %>
@@ -20,4 +20,3 @@
       </div>
     <% end %>
   </div>
-</div>
