@@ -11,7 +11,11 @@
           <%= f.input :category, collection: Guitar::CATEGORIES, label:"Select a category" %>
           <%= f.input :brand, collection: Guitar::BRANDS, label:"Select a brand" %>
           <%= f.input :description %>
-          <%= f.input :address %>
+          <%= f.input :address,
+                      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+          %>
+
           <%= f.input :daily_price %>
           <%= f.input :photo, as: :file %>
 
