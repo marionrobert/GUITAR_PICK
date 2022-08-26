@@ -15,7 +15,7 @@ class GuitarsController < ApplicationController
       lat: guitar.latitude,
       lng: guitar.longitude,
       info_window: render_to_string(partial: "info_window", locals: {guitar: guitar}),
-      image_url: helpers.asset_url("favpng_electric-guitar-guitar-pick-drawing.png")
+      image_url: helpers.asset_url("logo.svg")
     }
     end
   end
@@ -27,7 +27,7 @@ class GuitarsController < ApplicationController
         lat: @guitar.latitude,
         lng: @guitar.longitude,
         info_window: render_to_string(partial: "info_window", locals: {guitar: @guitar}),
-        image_url: helpers.asset_url("favpng_electric-guitar-guitar-pick-drawing.png")
+        image_url: helpers.asset_url("logo.svg")
       }
     ]
   end
