@@ -21,7 +21,11 @@
 
         </div>
         <div class="form-actions">
-          <%= f.button :submit %>
+          <% if @guitar.name.nil? %>
+            <%= f.button :submit, class:"btn-guitar-main", value:"Add my guitar"%>
+          <% else %>
+            <%= f.button :submit, class:"btn-guitar-main", value:"Update my guitar"%>
+          <% end %>
         </div>
         <% end %>
     </div>

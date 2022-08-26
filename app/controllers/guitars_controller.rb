@@ -42,7 +42,7 @@ class GuitarsController < ApplicationController
     @guitar.user = current_user
 
     if @guitar.save
-      redirect_to guitar_path(@guitar)
+      redirect_to guitar_path(@guitar), success: "Your guitar was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -53,7 +53,7 @@ class GuitarsController < ApplicationController
 
   def update
     if @guitar.update(guitar_params)
-      redirect_to guitar_path, notice: "Guitar was successfully updated."
+      redirect_to guitar_path, success: "Your guitar was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
