@@ -18,21 +18,21 @@
         <% if @owner_pending_rentals.count > 0 %>
           <%= render partial: 'pages/pending-rentals-grid'%>
         <% else %>
-          <p>You don't have pending rentals</p>
+          <p>You don't have any pending rentals</p>
         <% end %>
       </div>
       <div class="tab-pane fade my-3" id="owner-validated" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
         <% if @owner_accepted_rentals.count > 0 %>
           <%= render partial: 'pages/accepted-rentals-grid'%>
         <% else %>
-        <p>You don't have accepted rentals</p>
+        <p>You don't have any accepted rentals</p>
       <% end %>
       </div>
       <div class="tab-pane fade my-3" id="owner-declined" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
         <% if @owner_declined_rentals.count > 0 %>
           <%= render partial: 'pages/declined-rentals-grid'%>
         <% else %>
-          <p>You don't have declined rentals</p>
+          <p>You don't have any declined rentals</p>
         <% end %>
       </div>
     </div>
