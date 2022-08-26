@@ -27,7 +27,9 @@ class PagesController < ApplicationController
     @markers = @guitars.geocoded.map do |guitar|
       {
         lat: guitar.latitude,
-        lng: guitar.longitude
+        lng: guitar.longitude,
+        info_window: render_to_string(partial: "guitars/info_window", locals: {guitar: guitar}),
+        image_url: helpers.asset_url("favpng_electric-guitar-guitar-pick-drawing.png")
       }
     end
   end
