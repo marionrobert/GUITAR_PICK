@@ -8,6 +8,7 @@ class GuitarsController < ApplicationController
     else
       @guitars = Guitar.all
     end
+
   # The `geocoded` scope filters only guitars with coordinates
     @markers = @guitars.geocoded.map do |guitar|
     {
