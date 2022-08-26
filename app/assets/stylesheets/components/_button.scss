@@ -1,14 +1,21 @@
 .btn-guitar-main {
   color: $ourwhite;
-  padding: 8px 24px;
+  padding: 8px 16px;
   border-radius: 4px;
   background: $ourred;
   transition: background 0.3s ease;
+  font-family: Montserrat;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 16px;
+  border:none;
+
 }
 
 .btn-guitar-main:hover {
   background: $ourdarkred;
   color: $ourwhite;
+  font-weight: 700;
 }
 
 
