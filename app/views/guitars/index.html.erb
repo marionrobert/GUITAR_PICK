@@ -1,13 +1,13 @@
 
 <div class="container">
   <diV class="row">
-    <%= form_with url: guitars_path, method: :get, class: "d-flex pt-5 py-5" do %>
+    <%= form_with url: guitars_path, method: :get, class: "d-flex pt-5 py-5 justify-content-center" do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "search",
         placeholder: "Find a guitar"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn-guitar-main" %>
     <% end %>
   </div>
 </div>

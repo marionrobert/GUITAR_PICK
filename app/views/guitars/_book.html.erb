@@ -22,7 +22,12 @@
                         flatpickr_target: 'endDateInput'
                         }
                       } %>
-          <div class="text-center"><%= f.submit 'Book', class:'btn-guitar-main px-5' %>
+          <div class="text-center">
+            <%if current_user  %>
+              <%= f.submit 'Book', class:'btn-guitar-main px-5' %>
+            <%else%>
+              <p><%= link_to 'Book', new_user_session_path, class:"btn-guitar-main px-5"%></p>
+            <%end%>
           </div>
         <% end %>
       </div>
