@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <h1 class="mx-auto pt-2">
+      Guitar Pick
+    </h1>
     <a class="navbar-brand" href="/">
-      <%= image_tag"favpng_electric-guitar-guitar-pick-drawing.png"%>
+      <%= image_tag"logo.svg"%>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,15 +15,16 @@
 
 
 
+
           <li class="nav-item">
           <!--Login management-->
           <% if user_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "Dashboard", dashboard_path, class: "nav-link dashboard-btn" %>
+              <%= link_to "Dashboard", dashboard_path, class: "pt-2 nav-link dashboard-btn" %>
             </li>
 
           <% else %>
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "pt-2 nav-link" %>
           <% end %>
 
           </li>

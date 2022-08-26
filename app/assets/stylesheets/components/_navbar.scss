@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  background: linear-gradient(180deg, $brown 98%, $darkbrown 100%);
+  background: $ourred;
   position:relative;
   justify-content: space-between;
   position: sticky;
@@ -7,6 +7,12 @@
   top: 0px;
   width: 100%;
   height: 60px;
+}
+
+.navbar-lewagon h1{
+  color: $ourwhite;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,9 +25,18 @@
   left: 5px;
   width: 90px;
 }
+.nav-link{
+  color: $ourwhite;
+  font-weight: bold ;
+}
+.nav-link:hover{
+  color: $ourwhite;
+  font-weight: bolder ;
+}
+
 
 .navbar-brand img:hover {
-  transition-duration: 300ms;
+  transition-duration: 600ms;
   transform: rotate(-90deg);
   top: 12px;
   left: 2px;
