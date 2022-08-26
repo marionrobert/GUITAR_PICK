@@ -1,0 +1,29 @@
+.btn-guitar-main {
+  color: $ourwhite;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $ourred;
+  transition: background 0.3s ease;
+}
+
+.btn-guitar-main:hover {
+  background: $ourdarkred;
+  color: $ourwhite;
+}
+
+
+
+
+
+// .btn-guitar-secondary{
+//   color: $ourwhite;
+//   padding: 8px 24px;
+//   border-radius: 4px;
+//   background: #670BFF;
+//   transition: background 0.3s ease;
+// }
+
+// .btn-guitar-secondary:hover {
+//   background: #4D04C4;
+//   color: white;
+// }
