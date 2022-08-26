@@ -3,7 +3,12 @@ class GuitarsController < ApplicationController
   before_action :set_guitar, only: [:show, :destroy, :edit, :update]
 
   def index
-    @guitars = Guitar.all
+    if params[:query].present?
+      @guitars = Guitar.search_by_name_and_brand_and_category_and_description_and_address("%#{params[:query]}%")
+    else
+      @guitars = Guitar.all
+    end
+
   # The `geocoded` scope filters only guitars with coordinates
     @markers = @guitars.geocoded.map do |guitar|
     {

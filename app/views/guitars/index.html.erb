@@ -1,6 +1,28 @@
+<div class="container">
 
-<%= render partial: 'guitars/guitar-grid'%>
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="row">
+    <%= form_with url: guitars_path, method: :get, class: "d-flex pt-5 py-5" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a guitar"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= render partial: 'guitars/guitar-grid'%>
+  </div>
+
+  <div class="row">
+    <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
+
+
+
+</div>
