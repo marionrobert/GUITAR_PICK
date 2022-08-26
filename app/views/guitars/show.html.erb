@@ -7,8 +7,9 @@
       <% if @guitar.user == current_user %>
         <div class="d-flex my-3">
           <%= link_to "Edit Guitar", edit_guitar_path(@guitar), class: "btn-guitar-main  text-color-white" %>
-          <%= link_to "Delete Guitar", @guitar, method: :delete, class: "btn-guitar-main  text-color-white ms-3" %>
+          <%= link_to "Delete Guitar", @guitar, data: { turbo_method: :delete }, class: "btn-guitar-main  text-color-white ms-3" %>
         </div>
+
       <% end %>
       <% if @guitar.photo.attached? %>
         <%= cl_image_tag @guitar.photo.key, crop: :fill, style:"width: 80%" %>
