@@ -16,9 +16,11 @@
       <%= render partial: 'shared/navbar' %>
         <span class="alert"><%= alert %>
         </span>
-      <%= yield %>
-      <div  class="spacer"> .
+      <div class="allpagelayout">
+        <%= yield %>
       </div>
+      <%# <div  class="spacer"> .
+      </div> %>
       <%= render partial: 'shared/footer'%>
       <%= render 'shared/flash'%>
   </body>
