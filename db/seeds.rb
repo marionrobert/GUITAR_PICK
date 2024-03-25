@@ -6,7 +6,7 @@ User.destroy_all
 
 # Creation of a first User to give a defaultavatar when you want to display an avatar to a user who didn't choose a picture >>>> never delete this one!
 test_user = User.new(username: "Samantha", email:"samantha@gmail.com", password: "123456", description: "sunday rocker")
-file = URI.open("https://png2.cleanpng.com/sh/b0e7610f11398f1699f22ee9f196ab25/L0KzQYm3VMA2N5V5j5H0aYP2gLBuTfxwb5pzRdl4b3fvdX7ogBNwfZ95RdV4bYD4hLb5Tflkd594Red8ZYKwcbT7igZqfKoyTdNsNnLldYi7gfE4bmIzTqMAN0K5RIO4VcIzQWg4Tqk6M0C4SHB3jvc=/kisspng-login-google-account-computer-icons-user-activity-5ac6bbe74aa7f1.6157264215229736713058.png")
+file = URI.open("https://www.pngfind.com/pngs/m/381-3819326_default-avatar-svg-png-icon-free-download-avatar.png")
 test_user.avatar.attach(io: file, filename: "avatar.png")
 test_user.save!
 
