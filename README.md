@@ -25,7 +25,7 @@ L'application tourne actuellement sur :
 <br/>
 
 ### Étapes d'installation :
-1. Clonez le dépôt Git : `git clone https://github.com/marionrobert/synopsix-940.git`
+1. Clonez le dépôt Git : `git clone https://github.com/marionrobert/GUITAR_PICK.git`
 2. Assurez-vous d'avoir Rails, Yarn et Webpack installés avec les versions correspondantes.
 3. Créez un fichier `.env` à la racine du projet et ajoutez votre clé API Cloudinary : `CLOUDINARY_URL=VOTRE_CLÉ_API_ICI`
 4. Exécutez les commandes suivantes pour installer les dépendances et configurer la base de données :
