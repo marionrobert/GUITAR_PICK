@@ -57,6 +57,7 @@ Sur cette page, l'utilisateur peut :
 <br/>
 
 Sur la page `/login`, l'utilisateur peut centrer son email et son mot de passe pour se connecter, cliquer sur le lien `Forgot your password` et suivre la procédure ou cliquer sur le lien`Sign up` et remplir le formulaire pour se créer un compte.
+Pour tester l'application, vous pouvez utiliser les comptes "test" créés lors de la génération des seeds. Par exemple : `email : mar@gmail.com` et `mot de passe : 123456`.
 
 Sur la page `/guitars`, l'utilisateur peut parcourir toutes les guitares disponibles, les visualier sur une carte et rechercher une guitare par son nom, son code postal ou son adresse.
 
