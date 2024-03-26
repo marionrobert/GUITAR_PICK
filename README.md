@@ -1,6 +1,6 @@
 # GuitarPick
 <img src="/app/assets/images/screenshots/banner.png" alt="banner">
-Guitar Pick est un site de location de guitares construit sur le modèle d'AirBnb. L'application est disponible uniquement en anglais.
+Guitar Pick est un site de location de guitares inspiré du modèle d'AirBnb. L'application est disponible uniquement en anglais.
 
 <br/>
 <br/>
