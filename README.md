@@ -1,11 +1,14 @@
 # GuitarPick
-Guitar Pick est un site de location de guitares construit sur le modèle d'AirBnb. L'application est disponible uniquement en anglais.
+<img src="/app/assets/images/screenshots/banner.png" alt="banner">
+Guitar Pick est un site de location de guitares, développé sur le modèle d'AirBnb. L'application est disponible uniquement en anglais.
 
+<br/>
 <br/>
 
 ## Contexte de développement 💻🤝
 Il s'agit d'un projet éducatif développé en équipe lors du bootcamp "Développement Web" à Le Wagon. 🚋
 
+<br/>
 <br/>
 
 ## Installation et Configuration ⚙️🛠️
@@ -39,6 +42,7 @@ L'application tourne actuellement sur :
    - Utilisez la commande `dev` pour automatiser ces étapes grâce au fichier `Procfile.dev` (pratique!  :bulb:)
 
 <br/>
+<br/>
 
 
 ## Utilisation
@@ -48,14 +52,30 @@ Sur cette page, l'utilisateur peut :
 - se connecter grâce au bouton **Login**
 - se rendre sur la page où toutes les guitares sont visibles grâce au bouton **Browse Guitars**
 
-Sur la page `/login`, l'utilisateur peut choisir entre entrer son email et son mot de passe pour se connecter, cliquer sur le lien `Forgot your password` et suivre la procédure ou cliquer sur `Sign up` et se créer un compte.
+<img src="/app/assets/images/screenshots/homePage.png" alt="page d'accueil">
 
-Sur la page `/guitars`, l'utilisateur peut parcourir toutes les guitares disponibles, les visualier sur une carte et rechercher une guitare par son nom.
+<br/>
 
-Sur la page `/guitars/{index}`, l'utilisateur peut voir les détails à propos d'une guitare et sélectionner les dates de début et de fin de la réservation. Pour faire une demande de réservation, l'utilisateur doit être connecté.
+Sur la page `/login`, l'utilisateur peut centrer son email et son mot de passe pour se connecter, cliquer sur le lien `Forgot your password` et suivre la procédure ou cliquer sur le lien`Sign up` et remplir le formulaire pour se créer un compte.
+
+Sur la page `/guitars`, l'utilisateur peut parcourir toutes les guitares disponibles, les visualier sur une carte et rechercher une guitare par son nom, son code postal ou son adresse.
+
+<img src="/app/assets/images/screenshots/allGuitars.png" alt="toutes les guitares">
+<img src="/app/assets/images/screenshots/searchGuitars.png" alt="rechercher une guitare">
+
+<br/>
+
+Sur la page `/guitars/{index}`, l'utilisateur peut voir les détails à propos d'une guitare et sélectionner les dates de début et de fin de la réservation. Pour faire une demande de réservation, l'utilisateur doit être connecté. Lorsque l'utilisateur fait une demande de réservation, le propriétaire de la guitare pourra accepter ou décliner la demande. Une réservation peut avoir plusieurs statuts : `pending`, `accepted`, `declined`.
+
+<img src="/app/assets/images/screenshots/guitarDetails.png" alt="page de détails d'une guitare">
+
+<br/>
+
 Sur cette même page, si l'utilisateur est propriétaire de la guitare, deux boutons apparraissent : **Edit guitar** et **Delete guitar** qui vont permettent à l'utilisateur de modifier les détails d'une guitare ou de supprimer cette dernière.
 
-Lorsque l'utilisateur fait une demande de réservation, le propriétaire de la guitare pourra accepter ou décliner la demande. Une réservation peut avoir plusieurs statuts : `pending`, `accepted`, `declined`.
+<img src="/app/assets/images/screenshots/editGuitar.png" alt="page de modification d'une guitare">
+
+<br/>
 
 Sur la page `/dashboard`, l'utilisateur peut visualiser:
 - la liste des guitares qu'il mis à la location
@@ -63,9 +83,18 @@ Sur la page `/dashboard`, l'utilisateur peut visualiser:
 - l'ensemble des réservations (`pending`, `accepted`, `declined`) qui ont été faites sur ses guitares (partie **Owner**)
 - l'ensemble des réservations (`pending`, `accepted`, `declined`) qu'il a faites en tant que locataire (partie **Renter**)
 
-Sur la page `/guitars/new`, l'utilisateur peut ajouter une nouvelle guitare pour la mettre à la location. Cette page est accessible depuis le dahsboard ou le menu de la barre de navigation.
+<img src="/app/assets/images/screenshots/dashboard.png" alt="page de détails d'une guitare">
+<img src="/app/assets/images/screenshots/dashboard2.png" alt="page de détails d'une guitare">
+
 
 <br/>
 
-## Remarques 
-Le design n'est pas responsive. Il est uniquement adapté au format ordinateur.
+Sur la page `/guitars/new`, l'utilisateur peut ajouter une nouvelle guitare pour la mettre à la location. Cette page est accessible depuis le dahsboard ou le menu de la barre de navigation.
+
+<img src="/app/assets/images/screenshots/addGuitar.png" alt="page de création d'une guitare">
+
+<br/>
+<br/>
+
+## Remarques
+Le design est encore à travailler et n'est pas responsive. Il est uniquement adapté au format ordinateur.
